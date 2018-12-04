@@ -1,0 +1,70 @@
+.item-image {
+  font-size: 6em;
+  color: lightgray;
+  border: 5px solid #dee2e6!important;
+
+}
+
+.item-price {
+  font-weight: bold;
+  position: relative;
+  bottom: 0;
+}
+
+.item-name {
+  text-align: center;
+}
+
+.item-price{
+  text-align: center;
+}
+
+
+
+.block {
+	box-shadow: 0 0 30px -10px rgba(0,0,0,.1);
+  background: white;
+
+}
+
+h3 {
+  font-size: 20px;
+  margin-bottom: 0;
+}
+.item-details{
+
+  text-align: center!important;
+
+}
+.item-desc{
+  margin: 5px 0 5px 0;
+
+}
+.item-desc::first-letter{
+
+  text-transform: uppercase;
+}
+
+.fade {
+  position: relative;
+  height: 3.6em; /* exactly three lines */
+}
+.fade:after {
+  content: "";
+  text-align: right;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 70%;
+  height: 1.2em;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 50%);
+}
+
+.item-name{
+  color: lightcoral;
+  font-size: 20px;
+  font-weight: 500;
+}
+a {
+  text-decoration: none;
+}

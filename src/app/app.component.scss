@@ -24,9 +24,11 @@ html, body {
  // height: 100%;
   font-family: Raleway, sans-serif;
 }
+
 body{
   height: 9000px;
 }
+
 .container {
   background: royalblue;
   width: 100%;
@@ -36,7 +38,6 @@ body{
   z-index: 10;
   padding: 2em;
   position: relative;
-
 }
 
 .container.nav-open {
@@ -161,6 +162,8 @@ nav {
   }
 
 }
+
+
 
 
 
