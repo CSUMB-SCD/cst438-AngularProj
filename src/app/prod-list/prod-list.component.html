@@ -1,4 +1,8 @@
-<!-- bootstrap for icon
+<!-- <p>
+  prod-list works!
+</p>
+<div><router-outlet></router-outlet></div> -->
+ <!-- bootstrap for icon  -->
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -16,20 +20,17 @@
       <h4>Shop</h4>
     </li>
     <li>
+        <a routerLink="summary">
       <i class="icon-lifebuoy"></i>
-      <h4>Categories</h4>
+        </a>
+        <h4>Categories</h4>
     </li>
     
   </ul>
 </nav>
- shopping cart icon added! 
-<div class="container"><div class="menu-icon"><span></span></div>
-<router-outlet><div class="right-icon"><button type="button" class="btn btn-default btn-sm" ><span class="glyphicon glyphicon-shopping-cart" style="font-size: 1.5em"></span></button>
-</div></router-outlet></div> -->
-<div id="container">
-    <app-prod-list></app-prod-list>
-  
-    <div id="content">
-      <router-outlet></router-outlet>
-    </div>
+ <!-- shopping cart icon added!  -->
+<div class="container">
+  <div class="menu-icon"><span></span></div>
+  <a routerLink="checkout"><div class="right-icon"><span class="glyphicon glyphicon-shopping-cart "></span>
   </div>
+</a></div>
