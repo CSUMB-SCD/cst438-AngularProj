@@ -13,6 +13,8 @@ import { ListComponent } from './prod-list/list/list.component';
 import { DetailsComponent } from './prod-list/details/details.component';
 import { ModalComponent } from './prod-list/modal/modal.component';
 import { CartComponent } from './cart/cart.component';
+import { CheckoutComponent } from './checkout/checkout.component';
+
 
 const appRoutes: Routes = [
  { path: 'list', component: ProdListComponent }
@@ -27,6 +29,7 @@ const appRoutes: Routes = [
     DetailsComponent,
     ModalComponent,
     CartComponent,
+    CheckoutComponent,
   ],
   imports: [
     BrowserModule,

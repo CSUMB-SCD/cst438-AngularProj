@@ -13,4 +13,11 @@ export class DataService {
     return this.http.get('https://groceryservice.herokuapp.com/all');
   }
 
-}
+    getBalancebyID(id: String ) {
+      return this.http.get('https://userservice438.herokuapp.com/balance/' + id);
+    }
+    verifyFunds(id: String, amount)  {
+      return this.http.get('https://userservice438.herokuapp.com/verify/funds/' + id + '/' + amount);
+    }
+  }
+

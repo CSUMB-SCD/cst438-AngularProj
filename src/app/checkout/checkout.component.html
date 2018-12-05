@@ -1,0 +1,92 @@
+<div class = "container page-one" ng-controller="MainCtrl as ctrl" id="page">
+  <header>
+    <h1>Checkout</h1>
+  </header> 
+    <strong> This cart contains: {{myValue}} item(s).<br> </strong>
+    <small><br>See list below to add or delete item(s).<br> </small>
+    <!-- Display Cart -->
+    
+    <div class="row" >
+      <div class="col-md-4">
+        <table class="table table-bordered" id="table1" >
+        <thead>
+          <tr>
+            <th>  </th>
+            <th>Item</th>
+            <th>Price</th>
+            <th>          </th>
+            <th>Quantity</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+        <!-- Iterator loop -->
+        <tr *ngFor="let arr of itemsArray; let i = index">
+          <figure class="figure">
+          <!-- display images - check how are you going to store each image -->
+            <td> <img src="{{arr.image}}" class="figure-img img-fluid rounded" width="120" height="140" > </td> 
+          </figure>
+          <td>{{arr.productName}}</td>
+          <td>${{arr.price}}.0 </td>
+          <td>         </td>
+          <!-- update/remove number of items -->
+        <td>
+          <div class="form-group">
+              <form class="form-horizontal" >
+              <input type="number" class="form-control" placeholder="{{arr.quantity}}" id="quantity"
+                name="quantity" autocomplete="quantity" [(ngModel)]="model2.quantity" max="5" min="0" ><button type="submit" class="btn btn-success" (click)="updateItem(i)">Update</button>
+              </form>
+            </div>
+        </td>
+        <td>   
+          <button type="submit" class="btn btn-danger" (click)="deleteItem(i)">Delete</button>
+        </td>
+        </tr>
+         </tbody>
+         </table>
+      </div>
+      <div class="col-xs-2"></div>
+      <div class="col-md-6">
+        <header>
+          <h2>Summary</h2>
+        </header>
+      <table id="table2" class="table">
+        <tr>
+          <td>Use name: </td> 
+          <td>Sarabi Ochoa</td>
+        </tr>
+        <tr>
+          <td>Total items: </td> 
+          <td>{{myValue}}</td>
+        </tr>
+        <tr>
+          <td>Purchase: </td> 
+          <td>${{totalAmount}}.0</td>
+        </tr>
+        <tr>
+            <td>Credit Available: </td> 
+            <td>${{balance$}}</td>
+        </tr>
+        <tr>
+            <td>    </td> 
+            <td>{{fundsMSG}} {{funds$}} </td>
+          </tr>
+          <tr>
+              <td>    </td> 
+              <td>   </td>
+          </tr>
+          <tr>
+              <td>    </td> 
+              <td>   </td>
+          </tr>
+      </table>
+      <form>
+        <script>
+          
+        </script>
+        <!-- show confirm button if it has enough credit -->
+        <button type="submit" class="btn btn-success" (click)="payOrder()" ><strong>Confirm Purchase</strong></button>
+      </form>
+    </div>
+</div>
+</div>
