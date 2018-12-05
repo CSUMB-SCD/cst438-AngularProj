@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { DataService } from '../data.service';
 import { Observable } from 'rxjs';
+import {SESSION_STORAGE, WebStorageService} from 'angular-webstorage-service';
+
 @Component({
   selector: 'app-checkout',
   templateUrl: './checkout.component.html',
@@ -10,30 +12,33 @@ export class CheckoutComponent implements OnInit{
   netImage:any = 'https://www.asianfoodgrocer.com/media/catalog/category/jasmine-rice_1.jpg';
   msg:string = '';
   // Items Array
-   itemsArray = [
-    {'productName': 'White Rice', image: this.netImage , price: 2, quantity:1 },
-    {'productName': 'Doritos Tapatio', image: "https://images-na.ssl-images-amazon.com/images/I/510X88V3r-L._SY355_.jpg", price:2, quantity:1},
-    {'productName': 'Dove soap', image: "https://images-na.ssl-images-amazon.com/images/I/61KQeHn6W2L._SX466_.jpg" , price:1, quantity:1},
-   ];
-  
+   itemsArray = []; //[
+  //   {'name': 'White Rice', image: this.netImage , price: 2, quantity:1 },
+  //   {'name': 'Doritos Tapatio', image: "https://images-na.ssl-images-amazon.com/images/I/510X88V3r-L._SY355_.jpg", price:2, quantity:1},
+  //   {'name': 'Dove soap', image: "https://images-na.ssl-images-amazon.com/images/I/61KQeHn6W2L._SX466_.jpg" , price:1, quantity:1},
+  //  ];
+
   model2:any = {};
   fundsMSG:string='';
   hideUpdate:boolean = true;
   items$: Object;
   funds$: Object;
   balance$: Object;
-  myValue; totalAmount;
-  
+  myValue;
+  totalAmount: number;
 
-  constructor(private data: DataService) { this.myValue=0;
- }
+
+  constructor(@Inject(SESSION_STORAGE) private storage: WebStorageService, private data: DataService) { this.myValue=0;
+    this.itemsArray = this.storage.get('cart');
+  }
+
   ngOnInit() {
-   
-    this.data.getBalancebyID("5c06d50615a5b80004b89dd7").subscribe(
-      data => this.balance$ = data 
+
+    this.data.getBalancebyID("5c072fb51cdc6d000484955c").subscribe(
+      data => this.balance$ = data
     );
-    this.data.verifyFunds("5c06d50615a5b80004b89dd7", this.totalAmount).subscribe(
-      data => this.funds$ = data 
+    this.data.verifyFunds("5c072fb51cdc6d000484955c", this.totalAmount).subscribe(
+      data => this.funds$ = data
     );
     this.countItems();
     this.getSum();
@@ -60,15 +65,17 @@ export class CheckoutComponent implements OnInit{
     this.itemsArray[i].quantity = this.model2.quantity;
     this.countItems();
     this.getSum();
+    this.storage.set('cart', this.itemsArray);
+
   }
-  getSum():number{
+  getSum():Number{
    this.totalAmount=0;
    for(let j = 0; j < this.itemsArray.length; j++){
     if(this.itemsArray[j].quantity>1){
-      this.totalAmount+=  (this.itemsArray[j].quantity * this.itemsArray[j].price);
-    } 
+      this.totalAmount+=  Number(this.itemsArray[j].quantity * this.itemsArray[j].price);
+    }
     else{
-      this.totalAmount+= this.itemsArray[j].price;
+      this.totalAmount+= Number(this.itemsArray[j].price);
     }
   }
     return this.totalAmount;
@@ -78,6 +85,8 @@ export class CheckoutComponent implements OnInit{
       this.itemsArray.splice(i, 1);
       this.countItems();
       this.getSum();
+      this.storage.set('cart', this.itemsArray);
+
   }
   closeAlert():void {
     this.msg = '';

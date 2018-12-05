@@ -23,6 +23,9 @@ html, body {
   background: yellow;
  // height: 100%;
   font-family: Raleway, sans-serif;
+  background-image: url("https://www.sinium.com/media/2013/08/sinium-polygon-bg.jpg");
+
+
 }
 body{
   height: 9000px;
@@ -50,6 +53,9 @@ body{
     font-size: 2.0em;
     float:right;
     color: whitesmoke;
+
+}
+router-outlet{
 
 }
 /*

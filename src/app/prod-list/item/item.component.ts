@@ -8,8 +8,8 @@ import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core
 })
 export class ItemComponent {
   @Input() public id: number;
-  @Input() public name: string;
+  @Input() public name: String;
   @Input() public price: number;
   @Input() public quantity: number;
-  @Input() public desc: string;
+  @Input() public desc: String;
 }
