@@ -15,6 +15,9 @@ import { ModalComponent } from './prod-list/modal/modal.component';
 import { CartComponent } from './cart/cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 
+import { HomeComponent } from './home/home.component';
+import { SignInComponent } from './sign-in/sign-in.component';
+import { FinalpageComponent } from './finalpage/finalpage.component';
 
 const appRoutes: Routes = [
  { path: 'list', component: ProdListComponent }
@@ -30,6 +33,9 @@ const appRoutes: Routes = [
     ModalComponent,
     CartComponent,
     CheckoutComponent,
+    HomeComponent,
+    SignInComponent,
+    FinalpageComponent
   ],
   imports: [
     BrowserModule,
