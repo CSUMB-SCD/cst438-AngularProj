@@ -1,0 +1,26 @@
+<div class="list-items">
+
+  <div class="list-item" (click) = "openModal(item.id)" *ngFor="let item of products$">
+
+    <app-jw-modal id="{{item.id}}">
+      <h1>{{item.name}}</h1>
+
+      {{item.desc}}<br>
+      Price: ${{item.price}}<br>
+      Quantity: <input type="number" id= "text{{item.id}}" value="1"/>
+      <button class="add-to-cart" id="but{{item.id}}" (click)="addToCart(item)">
+        {{button}}
+      </button>
+
+      </app-jw-modal>
+    <app-item
+      [name]="item.name"
+      [price]="item.price"
+      [desc]="item.desc">
+
+
+    </app-item>
+  </div>
+
+</div>
+

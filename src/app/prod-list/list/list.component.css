@@ -1,0 +1,19 @@
+.list-items {
+  display: flex;
+
+  justify-content: center;
+
+  flex-flow: row wrap;
+  align-content: flex-end;
+}
+
+.list-item {
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 50px;
+  align-content: center;
+  text-align: center;
+  width: 140px;
+
+  border: 1px solid #dee2e6!important;
+}
