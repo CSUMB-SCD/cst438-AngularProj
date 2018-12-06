@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { DataService } from '../data.service';
 import { Observable } from 'rxjs';
-import {SESSION_STORAGE, WebStorageService} from 'angular-webstorage-service';
+ import {SESSION_STORAGE, WebStorageService} from 'angular-webstorage-service';
 
 @Component({
   selector: 'app-checkout',
