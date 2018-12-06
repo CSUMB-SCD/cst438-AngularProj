@@ -8,6 +8,7 @@ import { HomeComponent} from './home/home.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { FinalpageComponent } from './finalpage/finalpage.component';
 
+
 const routes: Routes = [ {
   path: '',
   pathMatch: 'full',

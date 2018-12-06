@@ -1,10 +1,11 @@
-.title{
+/* .title{
  color:"red"
 font-family="Verdana"
 font-style="italic"
 font-size=20px
 text-aling="center";
 }
+
 .sign-in{
   color:red;
 }
@@ -20,6 +21,7 @@ row {
   width: 700%;
 }
 .flex-item {
+
   padding: 5px;
   width: 500px;
   height: 450px;
@@ -29,4 +31,4 @@ row {
   font-weight: bold;
   font-size: 3em;
   text-align: center;
-}
+} */

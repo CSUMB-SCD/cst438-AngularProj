@@ -4,12 +4,15 @@ import {Component, OnInit, ElementRef, AfterViewInit, Inject} from '@angular/cor
 import * as $ from 'jquery';
 import { CartService } from './cart.service';
 import {SESSION_STORAGE, WebStorageService} from 'angular-webstorage-service';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
+
+  public octicons = require('octicons');
 
   public shoppingCartItems$: Observable<ItemComponent[]>;
 
@@ -23,6 +26,7 @@ export class AppComponent implements OnInit {
 
 
     }
+
 
 public ngOnInit() {
 
