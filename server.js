@@ -3,10 +3,10 @@
 const express = require('express');
 const path = require('path');
 const app = express();
-app.use(express.static(__dirname + '/dist/cst438-AngularProj'));
+app.use(express.static(__dirname + '/dist/cst438-angularproj'));
 
 app.get('/*', function(req,res) {
-  res.sendFile(path.join(__dirname+'/dist/cst438-AngularProj/index.html'));
+  res.sendFile(path.join(__dirname+'/dist/cst438-angularproj/index.html'));
 });
 
 
@@ -20,7 +20,7 @@ app.get('/*', function(req,res) {
 
 
 
-res.sendFile(path.join(__dirname+'/dist/cst438-AngularProj/Index.html'));
+res.sendFile(path.join(__dirname+'/dist/cst438-angularproj/Index.html'));
 
 });
 
