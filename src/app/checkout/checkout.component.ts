@@ -10,22 +10,16 @@ import {Router} from '@angular/router';
   styleUrls: ['./checkout.component.css']
 })
 export class CheckoutComponent implements OnInit{
-  netImage: any = 'https://www.asianfoodgrocer.com/media/catalog/category/jasmine-rice_1.jpg';
-  msg: String = '';
-  // Items Array
-   itemsArray = []; //[
-  //   {'name': 'White Rice', image: this.netImage , price: 2, quantity:1 },
-  //   {'name': 'Doritos Tapatio', image: "https://images-na.ssl-images-amazon.com/images/I/510X88V3r-L._SY355_.jpg", price:2, quantity:1},
-  //   {'name': 'Dove soap', image: "https://images-na.ssl-images-amazon.com/images/I/61KQeHn6W2L._SX466_.jpg" , price:1, quantity:1},
-  //  ];
-  name: String;
-  model2: any = {};
-  fundsMSG: String = '';
+ // Items Array
+  itemsArray = [];
+  model2:any = {};
+  fundsMSG: String='';
   hideUpdate: boolean = true;
   items$: Object;
-  funds$: Object;
-  balance$: Object;
+  funds$: any;
+  balance$: any;
   myValue;
+  name: String;
   totalAmount: number;
 
 
@@ -49,21 +43,28 @@ export class CheckoutComponent implements OnInit{
     this.data.verifyFunds(this.storage.get('id'), this.totalAmount).subscribe(
       data => this.funds$ = data
     );
+
+    console.log(this.data);
+    console.log(this.funds$);
     this.countItems();
     this.getSum();
     this.verifyingFunds(this.funds$);
+    return this.funds$;
   }
   verifyingFunds(funds$):void{
-    if(funds$==false){
-      this.hideUpdate=false;
-      this.fundsMSG = "Sorry! You don't have enough credit to proceed.";
+    this.hideUpdate = funds$;
+    console.log(this.balance$);
+    console.log(this.data);
+    if (funds$ === false){
+
+
+      this.fundsMSG = 'Sorry! You don\'t have enough credit to proceed.';
     }
-    else{
-      this.hideUpdate=true;
-      this.fundsMSG = "Congratulations! You have enough credit to make this purchase.";
+    if(funds$==true){
+      this.fundsMSG = 'Congratulations! You have enough credit to make this purchase.';
     }
   }
-  countItems():number{
+  countItems(): Number{
     this.myValue=0;
     for(let j = 0; j < this.itemsArray.length; j++){
         this.myValue += this.itemsArray[j].quantity;
@@ -87,6 +88,7 @@ export class CheckoutComponent implements OnInit{
       this.totalAmount+= Number(this.itemsArray[j].price);
     }
   }
+  console.log(Number(this.balance$)-Number(this.totalAmount));
     return this.totalAmount;
   }
   // eliminates item from the list
@@ -97,9 +99,4 @@ export class CheckoutComponent implements OnInit{
       this.storage.set('cart', this.itemsArray);
 
   }
-  closeAlert():void {
-    this.msg = '';
-  }
-
-
 }

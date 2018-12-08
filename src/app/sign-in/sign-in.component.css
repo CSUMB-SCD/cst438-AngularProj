@@ -1,0 +1,53 @@
+input[type=text] {
+    border: 1px dotted #999;
+    border-radius: 0.2;
+    color: darkolivegreen;
+    -webkit-appearance: none;
+    font-family: 'Dosis', Extra-Bold;
+    font-size: 20px;
+  }
+  input[type=password] {
+    border: 1px dotted #999;
+    color: darkolivegreen;
+    border-radius: 0.2;
+    font-size: 20px;
+    -webkit-appearance: none;
+    font-family: 'Dosis', Extra-Bold;
+  }
+  input[type=submit] {
+   
+    width: 15%;
+    border-radius: 5px;
+    color: darkolivegreen;
+    border-radius: 5px;
+    border: rgb(48, 65, 14);
+    font-family: 'Dosis';
+    font-size: 18px;
+   
+  }
+  input[type=button] {
+  
+    width: 15%;
+    background: white;
+    color: darkolivegreen;
+    border-radius: 5px;
+    border: rgb(48, 65, 14);
+    font-family: 'Dosis';
+    font-size: 18px;
+  }
+  body{
+      text-align: center;
+  }
+  h2{
+      text-align: center;
+      font-family: 'Dosis';
+      font-weight: 900; 
+      font-size: 40px;
+  }
+ 
+.board-container{
+    padding:40px;
+    box-sizing: border-box
+}
+.board{background-color:#D3D3D3;
+    height:50%;padding:20px; opacity: 0.7; }

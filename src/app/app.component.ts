@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class AppComponent implements OnInit {
 
-  public octicons = require('octicons');
+
 
   public shoppingCartItems$: Observable<ItemComponent[]>;
   public sign: false;
