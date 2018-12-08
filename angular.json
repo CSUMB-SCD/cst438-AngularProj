@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "homework3": {
+    "cst438-AngularProj": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/homework3",
+            "outputPath": "dist/cst438-AngularProj",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -51,18 +51,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "homework3:build"
+            "browserTarget": "cst438-AngularProj:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "homework3:build:production"
+              "browserTarget": "cst438-AngularProj:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "homework3:build"
+            "browserTarget": "cst438-AngularProj:build"
           }
         },
         "test": {
@@ -101,7 +101,7 @@
         }
       }
     },
-    "homework3-e2e": {
+    "cst438-AngularProj-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "targets": {
@@ -109,11 +109,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "homework3:serve"
+            "devServerTarget": "cst438-AngularProj:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "homework3:serve:production"
+              "devServerTarget": "cst438-AngularProj:serve:production"
             }
           }
         },
@@ -129,5 +129,5 @@
       }
     }
   },
-  "defaultProject": "homework3"
+  "defaultProject": "cst438-AngularProj"
 }
