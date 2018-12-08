@@ -42,7 +42,7 @@ $(document).ready(function() {
 
 });
 }
-public logout(){
+public logout() {
   this.storage.remove('id');
   this.storage.remove('name');
   this.router.navigate(['sign-in']);
