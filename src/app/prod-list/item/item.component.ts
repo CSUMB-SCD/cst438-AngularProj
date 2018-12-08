@@ -12,4 +12,5 @@ export class ItemComponent {
   @Input() public price: number;
   @Input() public quantity: number;
   @Input() public desc: String;
+  @Input() public img: String;
 }
