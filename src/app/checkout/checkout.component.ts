@@ -9,52 +9,53 @@ import { Observable } from 'rxjs';
   styleUrls: ['./checkout.component.css']
 })
 export class CheckoutComponent implements OnInit{
-  netImage:any = 'https://www.asianfoodgrocer.com/media/catalog/category/jasmine-rice_1.jpg';
-  msg:string = '';
-  // Items Array
-   itemsArray = []; //[
-  //   {'name': 'White Rice', image: this.netImage , price: 2, quantity:1 },
-  //   {'name': 'Doritos Tapatio', image: "https://images-na.ssl-images-amazon.com/images/I/510X88V3r-L._SY355_.jpg", price:2, quantity:1},
-  //   {'name': 'Dove soap', image: "https://images-na.ssl-images-amazon.com/images/I/61KQeHn6W2L._SX466_.jpg" , price:1, quantity:1},
-  //  ];
-
+ // Items Array
+  itemsArray = [];
   model2:any = {};
-  fundsMSG:string='';
-  hideUpdate:boolean = true;
+  fundsMSG: String='';
+  hideUpdate: boolean = true;
   items$: Object;
-  funds$: Object;
-  balance$: Object;
+  funds$: Boolean;
+  balance$: Number;
   myValue;
   totalAmount: number;
 
 
-  constructor(@Inject(SESSION_STORAGE) private storage: WebStorageService, private data: DataService) { this.myValue=0;
+  constructor(@Inject(SESSION_STORAGE) private storage: WebStorageService, private data: DataService) {  
+    this.myValue=0;
     this.itemsArray = this.storage.get('cart');
   }
 
   ngOnInit() {
-
-    this.data.getBalancebyID("5c072fb51cdc6d000484955c").subscribe(
-      data => this.balance$ = data
+    this.data.getBalancebyID("5c0ae322643bf100046c9dac").subscribe(
+      (data: Number) => this.balance$ = data
     );
-    this.data.verifyFunds("5c072fb51cdc6d000484955c", this.totalAmount).subscribe(
-      data => this.funds$ = data
+    this.data.verifyFunds( "300", "5c0ae322643bf100046c9dac").subscribe( async (data: Boolean) => 
+      this.funds$ = data 
+      
     );
+    
+    console.log(this.data);
+    console.log(this.funds$);
     this.countItems();
     this.getSum();
     this.verifyingFunds(this.funds$);
+    return this.funds$;
   }
   verifyingFunds(funds$):void{
+    this.hideUpdate=funds$;
+    console.log(this.balance$); 
+    console.log(this.data);
     if(funds$==false){
-      this.hideUpdate=false;
+      
+      
       this.fundsMSG = "Sorry! You don't have enough credit to proceed.";
     }
-    else{
-      this.hideUpdate=true;
+    if(funds$==true){
       this.fundsMSG = "Congratulations! You have enough credit to make this purchase.";
     }
   }
-  countItems():number{
+  countItems():Number{
     this.myValue=0;
     for(let j = 0; j < this.itemsArray.length; j++){
         this.myValue += this.itemsArray[j].quantity;
@@ -78,6 +79,7 @@ export class CheckoutComponent implements OnInit{
       this.totalAmount+= Number(this.itemsArray[j].price);
     }
   }
+  console.log(Number(this.balance$)-Number(this.totalAmount));
     return this.totalAmount;
   }
   // eliminates item from the list
@@ -88,9 +90,4 @@ export class CheckoutComponent implements OnInit{
       this.storage.set('cart', this.itemsArray);
 
   }
-  closeAlert():void {
-    this.msg = '';
-  }
-
-
 }

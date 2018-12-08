@@ -33,10 +33,9 @@ h6{
     background:rgb(224,224,224); 
     border-radius: 5px;
     font-size: 20px;
-    width: 60px;
     font-family: 'Dosis';
     position: relative;
-    left: 70%;
+    left: 25%;
     color: #2F4F4F;
 }
  td, th {
@@ -66,7 +65,7 @@ button{
         border-left: 2px solid #2F4F4F;
         height: 500px;
         position: absolute;
-        left: 260%;
+        left: 150%;
         margin-left: 3px;
         top: -50px;
 }
@@ -80,4 +79,5 @@ button{
     font-family: 'Dosis';
     font-size: 15px;
     font-weight: lighter; 
+    left: 65%;
 }
