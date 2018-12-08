@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class SigninService {
 
-
+  userId: String;
 
 
   constructor(private http: HttpClient) { }

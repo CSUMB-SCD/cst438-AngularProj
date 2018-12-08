@@ -31,10 +31,12 @@
  <!-- shopping cart icon added!  -->
 <div class="container" id="na">
   <div class="menu-icon"><span></span></div>
-  <a routerLink="checkout"><div class="right-icon"><span>{{this.octicons.inbox}}</span>
+  <a routerLink="checkout"><div class="right-icon"> <span class="glyphicon glyphicon-shopping-cart "></span>
   </div>
-</a></div>
-
+</a>
+<a routerLink="sign-in"> <div  class="glyphicon glyphicon-log-out " (click)="logout()"></div>
+</a>
+</div>
 
 <router-outlet></router-outlet>
 

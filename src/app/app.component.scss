@@ -48,13 +48,22 @@ body{
   width: 90%;
   @include transition(all 0.3s ease);
 }
-.right-icon > .glyphicon:last-child  {
+.right-icon > .glyphicon  {
 
     top: -20px;
     font-size: 2.0em;
     float:right;
     color: whitesmoke;
 
+}
+.glyphicon-log-out{
+  top: -20px;
+    font-size: 2.0em;
+    float:right;
+    font-size: 25px;
+
+    right: 50px;
+    color: whitesmoke;
 }
 router-outlet{
 

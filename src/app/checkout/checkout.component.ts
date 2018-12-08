@@ -1,7 +1,8 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { DataService } from '../data.service';
 import { Observable } from 'rxjs';
-import {SESSION_STORAGE, WebStorageService} from 'angular-webstorage-service';
+import {Router} from '@angular/router';
+ import {SESSION_STORAGE, WebStorageService} from 'angular-webstorage-service';
 
 @Component({
   selector: 'app-checkout',
@@ -9,18 +10,18 @@ import {SESSION_STORAGE, WebStorageService} from 'angular-webstorage-service';
   styleUrls: ['./checkout.component.css']
 })
 export class CheckoutComponent implements OnInit{
-  netImage:any = 'https://www.asianfoodgrocer.com/media/catalog/category/jasmine-rice_1.jpg';
-  msg:string = '';
+  netImage: any = 'https://www.asianfoodgrocer.com/media/catalog/category/jasmine-rice_1.jpg';
+  msg: String = '';
   // Items Array
    itemsArray = []; //[
   //   {'name': 'White Rice', image: this.netImage , price: 2, quantity:1 },
   //   {'name': 'Doritos Tapatio', image: "https://images-na.ssl-images-amazon.com/images/I/510X88V3r-L._SY355_.jpg", price:2, quantity:1},
   //   {'name': 'Dove soap', image: "https://images-na.ssl-images-amazon.com/images/I/61KQeHn6W2L._SX466_.jpg" , price:1, quantity:1},
   //  ];
-
-  model2:any = {};
-  fundsMSG:string='';
-  hideUpdate:boolean = true;
+  name: String;
+  model2: any = {};
+  fundsMSG: String = '';
+  hideUpdate: boolean = true;
   items$: Object;
   funds$: Object;
   balance$: Object;
@@ -28,16 +29,24 @@ export class CheckoutComponent implements OnInit{
   totalAmount: number;
 
 
-  constructor(@Inject(SESSION_STORAGE) private storage: WebStorageService, private data: DataService) { this.myValue=0;
+  constructor(@Inject(SESSION_STORAGE) private storage: WebStorageService, private data: DataService, private router: Router) {
+    console.log(storage.get('id'));
+    this.name = this.storage.get('name');
+
+    console.log(this.name);
+    if (storage.get('id') == null) {
+      this.router.navigate(['sign-in']);
+    }
+    this.myValue = 0;
     this.itemsArray = this.storage.get('cart');
   }
 
   ngOnInit() {
 
-    this.data.getBalancebyID("5c072fb51cdc6d000484955c").subscribe(
+    this.data.getBalancebyID(this.storage.get('id')).subscribe(
       data => this.balance$ = data
     );
-    this.data.verifyFunds("5c072fb51cdc6d000484955c", this.totalAmount).subscribe(
+    this.data.verifyFunds(this.storage.get('id'), this.totalAmount).subscribe(
       data => this.funds$ = data
     );
     this.countItems();
