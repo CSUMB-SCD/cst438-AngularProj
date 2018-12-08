@@ -96,4 +96,7 @@ export class CheckoutComponent implements OnInit {
       this.storage.set('cart', this.itemsArray);
 
   }
+  checkout() {
+    this.storage.remove('cart');
+  }
 }
