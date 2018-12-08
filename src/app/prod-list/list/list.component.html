@@ -8,7 +8,7 @@
       {{item.desc}}<br>
       Price: ${{item.price}}<br>
       Quantity: <input type="number" id= "text{{item.id}}" value="1"/>
-      <button class="add-to-cart" id="but{{item.id}}" (click)="addToCart(item)">
+      <button class="add-to-cart" id="but{{item.id}}" (click)="addToCart(item, i)">
         {{button}}
       </button>
 

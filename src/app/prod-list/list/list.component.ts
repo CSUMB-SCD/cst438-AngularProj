@@ -57,16 +57,16 @@ closeModal(id: string) {
     this.modalService.close(id);
 }
 
-public addToCart(product: ItemComponent) {
+public addToCart(product: ItemComponent, i: string) {
 
 
-
+  console.log(product);
   this.button = 'Added!';
   document.getElementById('text' + product.id).style.color = 'green';
   const inputEle = <HTMLInputElement> document.getElementById('text' + product.id);
   // let butEle= <HTMLInputElement> document.getElementById('but' + product.id);
   product.quantity = Number(inputEle.value);
-
+  product.img = i;
   this.storage.set('total', this.storage.get('total') + (product.price * product.quantity));
 
   $('#text' + product.id).prop('disabled', true);
