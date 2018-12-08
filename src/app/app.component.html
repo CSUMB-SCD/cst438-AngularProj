@@ -3,7 +3,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
+ </head>
 <nav>
   <ul>
       <a routerLink="">
@@ -18,28 +18,17 @@
       <h4>Shop</h4>
     </li>
   </a>
-    <li>
-        <a routerLink="summary">
-      <i class="icon-lifebuoy"></i>
-        </a>
-        <h4>Categories</h4>
-    </li>
-
   </ul>
 </nav>
  <!-- shopping cart icon added!  -->
-<div class="container">
+<div class="container" id="na">
   <div class="menu-icon"><span></span></div>
-  <a routerLink="checkout"><div class="right-icon"><span class="glyphicon glyphicon-shopping-cart "></span>
+  <a routerLink="checkout"><div class="right-icon"> <span class="glyphicon glyphicon-shopping-cart "></span>
   </div>
-</a></div>
-
+</a>
+<a routerLink="sign-in"> <div  class="glyphicon glyphicon-log-out " (click)="logout()"></div>
+</a>
+</div>
 
 <router-outlet></router-outlet>
 
-
-<footer style="text-align:center" >
-  <p>____________________________________________________________________________________________________</p>
-  <p>Posted by: Team 10, CST 438</p>
-  <p>Adrian Martinez, Edith Gonzalez, Luis Valencia, Mayra Ochoa</p>
-</footer>

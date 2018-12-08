@@ -1,10 +1,11 @@
-.title{
+/* .title{
  color:"red"
 font-family="Verdana"
 font-style="italic"
 font-size=20px
 text-aling="center";
 }
+
 .sign-in{
   color:red;
 }
@@ -20,6 +21,7 @@ row {
   width: 700%;
 }
 .flex-item {
+
   padding: 5px;
   width: 500px;
   height: 450px;
@@ -29,4 +31,60 @@ row {
   font-weight: bold;
   font-size: 3em;
   text-align: center;
+} */
+
+.person {
+  line-height : 30px;
+  border: 10px solid transparent;
+  margin-bottom: 20px;
+  width: 70%;
+  height: 70%;
+  opacity: 0.7;
+  color: #2F4F4F;
+}
+.person:hover {
+  border-color: olivedrab;
+}
+.carousel-inner img {
+  width: 100%;
+  margin: auto;
+  position: absolute;
+  min-height: 500px;
+  opacity: 0.6;
+}
+.carousel .item.left img{
+  width: 100% !important;
+}
+.carousel .item {
+  height: 300px;
+}
+.carousel-caption h3 {
+  color: #fff !important;
+}
+
+@media (max-width: 300px) {
+  .carousel-caption {
+      display: none; /* Hide the carousel text when the screen is less than 600 pixels wide */
+  }
+}
+body {
+   background: whitesmoke !important;
+   font-family: 'Dosis';
+   font-weight: 90;
+   font-size: 20px;
+}
+
+#sign-in{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 6%;
+  color: #2F4F4F;
+  margin-top: 20px;
+  background: olivedrab;
+  border: olivedrab;
+  font-family: 'Dosis';
+  font-weight: 900;
+  font-size: 20px;
+  opacity: 0.6;
 }

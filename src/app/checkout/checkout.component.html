@@ -1,14 +1,17 @@
-<div class = "container page-one" ng-controller="MainCtrl as ctrl" id="page">
-  <header>
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
+  </head>
     <h1>Checkout</h1>
-  </header>
-    <strong> This cart contains: {{myValue}} item(s).<br> </strong>
-    <small><br>See list below to add or delete item(s).<br> </small>
-    <!-- Display Cart -->
+<body>
+  <div class = "container page-one" ng-controller="MainCtrl as ctrl" id="page">
+    <h6><strong> This cart contains: {{myValue}} item(s).<br> </strong>
+    <small><br>See list below to add or delete item(s).<br> </small></h6>
 
     <div class="row" >
       <div class="col-md-4">
-        <table class="table table-bordered" id="table1" >
+        <table class="table" id="table1" >
         <thead>
           <tr>
             <th>  </th>
@@ -19,13 +22,12 @@
             <th></th>
           </tr>
         </thead>
-        <tbody>
         <!-- Iterator loop -->
         <tr *ngFor="let arr of itemsArray; let i = index">
           <figure class="figure">
           <!-- display images - check how are you going to store each image -->
-            <td> <img src=" http://www.tdubic.com/wp-content/uploads/2014/12/03_food_can_3dmodel000-650x650.jpg"
-               class="figure-img img-fluid rounded" width="120" height="140" > </td>
+            <td> <img src="../../../assets/{{arr.id}}.jpg"
+               class="figure-img img-fluid rounded" width="180" height="200" > </td>
           </figure>
           <td>{{arr.name}}</td>
           <td>${{arr.price}}.0 </td>
@@ -39,22 +41,23 @@
               </form>
             </div>
         </td>
-        <td>
+         <td>
           <button type="submit" class="btn btn-danger" (click)="deleteItem(i)">Delete</button>
         </td>
         </tr>
-         </tbody>
          </table>
       </div>
-      <div class="col-xs-2"></div>
+      <div class="col-xs-2">
+          <div class="vl"></div>
+      </div>
       <div class="col-md-6">
-        <header>
-          <h2>Summary</h2>
-        </header>
       <table id="table2" class="table">
         <tr>
+          <td style="text-align: center;"><h2>Summary</h2></td>
+        </tr>
+        <tr>
           <td>Use name: </td>
-          <td>Sarabi Ochoa</td>
+          <td> {{name}} </td>
         </tr>
         <tr>
           <td>Total items: </td>
@@ -70,7 +73,7 @@
         </tr>
         <tr>
             <td>    </td>
-            <td>{{fundsMSG}}</td>
+            <td style="text-align: center;">{{fundsMSG}}{{funds$}}</td>
           </tr>
           <tr>
               <td>    </td>
@@ -81,15 +84,16 @@
               <td>   </td>
           </tr>
       </table>
-
-      <form router-link='finalpage'>
-
+      <div class="flex-container" >
+          <div class="row" >
+              <span class="flex-item"></span>
         <!-- show confirm button if it has enough credit -->
-        <a router-link='finalpage'>
-        <button type="submit" class="btn btn-success" ><strong>Confirm Purchase</strong></button>
-      </a>
-      </form>
+        <a routerLink='/finalpage'><button class="btn btn-primary btn-lg" id="final-page" ><strong>Confirm Purchase</strong></button></a>
+      </div>
+      </div>
 
     </div>
 </div>
 </div>
+</body>
+</html>

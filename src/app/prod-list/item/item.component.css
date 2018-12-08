@@ -47,7 +47,7 @@ h3 {
 
 .fade {
   position: relative;
-  opacity: 0%;
+  
   height: 3.6em; /* exactly three lines */
 }
 .fade:after {

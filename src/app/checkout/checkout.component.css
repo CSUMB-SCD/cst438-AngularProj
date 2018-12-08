@@ -1,46 +1,83 @@
- 
-    td, th {
-        text-align: left;   
-    }
-    #table1 {
-        font-family: arial, sans-serif;
-        width: 100%;
-        position: absolute;
-        background: white;
-        padding: 1px;
-       
-    }
-    #table2 {
-        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Sans', sans-serif;
-        border-collapse: collapse;
-        width: 70%;
-        height: 80%;
-        background:rgb(224,224,224); 
-        /* margin: 10px; */
-        border-radius: 10px;
-        font-size: 100%;
-   
-        border-color: gray;
+h1{
+    font-family: 'Dosis';
+    font-weight: 900; 
+    font-size: 45px;
+    left:9%;
+    position: relative;
+    color: #2F4F4F
+}
+h2{
+    font-family: 'Dosis';
+    font-weight: 900; 
+    font-size: 30px;
+    left: 80%;
+    color: #2F4F4F;
+}
+h6{
+    left:-5%;
+    font-size: 15px;
+    position: relative; 
+    color: #2F4F4F;
 
-        
-    }
-    input {
-        width: 80%;
-    }
-    button{
-        text-align: center;
-    }
-   
-   
-    .hl{
-        border-left: 5px solid rgb(14, 17, 17);
-        height: 600px;
-        position: absolute;
-        left: 55%;
-        margin-left: -3px;
-        top: 220px;
-     }
-     .table-bordered td, .table-bordered th {
-        border: none;
-    }
+}
+#table1 {
+    position: relative;
+    background: white;
+    font-size: 20px;  
+    width: 300px;; 
+    left:-20%;
+    color: #2F4F4F;
+}
+#table2 {
+    top: -50px;
+    background:rgb(224,224,224); 
+    border-radius: 5px;
+    font-size: 20px;
+    font-family: 'Dosis';
+    position: relative;
+    left: 25%;
+    color: #2F4F4F;
+}
+ td, th {
+    text-align: left;   
+    font-family: 'Dosis';
+}
+input {
+    width: 100%;
+    font-size: 15px;
+}
+button{
+    text-align: center;
+    font-weight: 600;
+    font-size: 15px;
+}
+.hl{
+    height: 600px;
+    width: 600px;
+    position: relative;
     
+    top: 240px;
+}
+.table-bordered td, .table-bordered th {
+        border: none;
+}
+.vl {
+        border-left: 2px solid #2F4F4F;
+        height: 500px;
+        position: absolute;
+        left: 150%;
+        margin-left: 3px;
+        top: -50px;
+}
+#final-page{
+    position: relative;
+    width: 25%;
+    color: white;
+    background: darkolivegreen;
+    border-radius: 5px;
+    border: rgb(48, 65, 14);
+    font-family: 'Dosis';
+    font-size: 15px;
+    font-weight: lighter; 
+    left: 65%;
+}

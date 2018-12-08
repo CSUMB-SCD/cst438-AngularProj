@@ -4,6 +4,7 @@ import {Component, OnInit, ElementRef, AfterViewInit, Inject} from '@angular/cor
 import * as $ from 'jquery';
 import { CartService } from './cart.service';
 import {SESSION_STORAGE, WebStorageService} from 'angular-webstorage-service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -11,18 +12,24 @@ import {SESSION_STORAGE, WebStorageService} from 'angular-webstorage-service';
 })
 export class AppComponent implements OnInit {
 
+
+
   public shoppingCartItems$: Observable<ItemComponent[]>;
+  public sign: false;
 
 
 
-  constructor(@Inject(SESSION_STORAGE) public storage: WebStorageService, private cartService: CartService) {
+
+  constructor(@Inject(SESSION_STORAGE) public storage: WebStorageService, private cartService: CartService, private router: Router) {
       this.shoppingCartItems$ = this
         .cartService
         .getItems();
       this.shoppingCartItems$.subscribe(_ => _);
+      this.sign = this.storage.get('id');
 
 
     }
+
 
 public ngOnInit() {
 
@@ -35,6 +42,10 @@ $(document).ready(function() {
 
 });
 }
-
+public logout(){
+  this.storage.remove('id');
+  this.storage.remove('name');
+  this.router.navigate(['sign-in']);
+}
 
 }
