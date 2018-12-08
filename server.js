@@ -3,7 +3,7 @@
 const express = require('express');
 const path = require('path');
 const app = express();
-app.use(express.static(__dirname + '/dist/cst438-AngularProj'));
+app.use(express.static(__dirname + '/dist/'));
 
 app.get('/*', function(req,res) {
   res.sendFile(path.join(__dirname+'/dist/cst438-AngularProj/index.html'));
@@ -12,17 +12,6 @@ app.get('/*', function(req,res) {
 
 
 // Serve only the static files form the dist directory
-
-
-
-
-app.get('/*', function(req,res) {
-
-
-
-res.sendFile(path.join(__dirname+'/dist/cst438-AngularProj/Index.html'));
-
-});
 
 
 
