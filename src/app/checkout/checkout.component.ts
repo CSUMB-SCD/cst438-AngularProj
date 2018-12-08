@@ -9,12 +9,12 @@ import {Router} from '@angular/router';
   templateUrl: './checkout.component.html',
   styleUrls: ['./checkout.component.css']
 })
-export class CheckoutComponent implements OnInit{
+export class CheckoutComponent implements OnInit {
  // Items Array
   itemsArray = [];
-  model2:any = {};
-  fundsMSG: String='';
-  hideUpdate: boolean = true;
+  model2: any = {};
+  fundsMSG: String = '';
+  hideUpdate: Boolean = true;
   items$: Object;
   funds$: any;
   balance$: any;
@@ -51,48 +51,45 @@ export class CheckoutComponent implements OnInit{
     this.verifyingFunds(this.funds$);
     return this.funds$;
   }
-  verifyingFunds(funds$):void{
+  verifyingFunds(funds$): void {
     this.hideUpdate = funds$;
     console.log(this.balance$);
     console.log(this.data);
-    if (funds$ === false){
-
-
+    if (funds$ === false) {
       this.fundsMSG = 'Sorry! You don\'t have enough credit to proceed.';
     }
-    if(funds$==true){
+    if (funds$ === true) {
       this.fundsMSG = 'Congratulations! You have enough credit to make this purchase.';
     }
   }
-  countItems(): Number{
-    this.myValue=0;
-    for(let j = 0; j < this.itemsArray.length; j++){
+  countItems(): Number {
+    this.myValue = 0;
+    for (let j = 0; j < this.itemsArray.length; j++) {
         this.myValue += this.itemsArray[j].quantity;
     }
     return this.myValue;
   }
-  updateItem(i):void {
+  updateItem(i): void {
     this.itemsArray[i].quantity = this.model2.quantity;
     this.countItems();
     this.getSum();
     this.storage.set('cart', this.itemsArray);
 
   }
-  getSum():Number{
-   this.totalAmount=0;
-   for(let j = 0; j < this.itemsArray.length; j++){
-    if(this.itemsArray[j].quantity>1){
-      this.totalAmount+=  Number(this.itemsArray[j].quantity * this.itemsArray[j].price);
-    }
-    else{
-      this.totalAmount+= Number(this.itemsArray[j].price);
+  getSum(): Number {
+   this.totalAmount = 0;
+   for (let j = 0; j < this.itemsArray.length; j++) {
+    if (this.itemsArray[j].quantity > 1) {
+      this.totalAmount +=  Number(this.itemsArray[j].quantity * this.itemsArray[j].price);
+    } else {
+      this.totalAmount += Number(this.itemsArray[j].price);
     }
   }
-  console.log(Number(this.balance$)-Number(this.totalAmount));
+  console.log(Number(this.balance$) - Number(this.totalAmount));
     return this.totalAmount;
   }
   // eliminates item from the list
-  deleteItem(i):void {
+  deleteItem(i): void {
       this.itemsArray.splice(i, 1);
       this.countItems();
       this.getSum();
